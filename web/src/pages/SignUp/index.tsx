@@ -3,68 +3,116 @@ import { FiArrowLeft, FiUser, FiMail, FiLock } from "react-icons/fi";
 import { Form } from "@unform/web";
 import { FormHandles } from "@unform/core";
 import * as Yup from "yup";
-
+import { Link, useHistory } from "react-router-dom";
+import api from "../../services/api";
 import logoImg from "../../assets/logo.svg";
 
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import { useToast } from "../../hooks/ToastContext";
 
 import getValidationErrors from "../../utils/getValidationErrors";
 
-import { Container, Content, Background } from "./styles";
+import {
+    Container,
+    Content,
+    Background,
+    AnimationContainer,
+    BoxInitial,
+    Title,
+} from "./styles";
+
+// Assets
+import logo from "../../assets/dog.svg";
+
+interface SignUpFormData {
+    name: string;
+    email: string;
+    password: string;
+}
 
 const SignUp: React.FC = () => {
     const formRef = useRef<FormHandles>(null);
-    const handleSubmit = useCallback(async (data: object) => {
-        try {
-            const schema = Yup.object().shape({
-                name: Yup.string().required("Nome obrigatório"),
-                email: Yup.string()
-                    .email("Digite um e-mail válido")
-                    .required("E-mail obrigatório"),
-                password: Yup.string().min(6, "No mínimo 6 dígitos"),
-            });
+    const { addToast } = useToast();
+    const history = useHistory();
 
-            await schema.validate(data, {
-                abortEarly: false,
-            });
-        } catch (err) {
-            if (err instanceof Yup.ValidationError) {
-                const errors = getValidationErrors(err);
+    const handleSubmit = useCallback(
+        async (data: SignUpFormData) => {
+            try {
+                const schema = Yup.object().shape({
+                    name: Yup.string().required("Nome obrigatório"),
+                    email: Yup.string()
+                        .email("Digite um e-mail válido")
+                        .required("E-mail obrigatório"),
+                    password: Yup.string().min(6, "No mínimo 6 dígitos"),
+                });
 
-                formRef.current?.setErrors(errors);
+                await schema.validate(data, {
+                    abortEarly: false,
+                });
+
+                await api.post("/users", data);
+                history.push("/");
+
+                addToast({
+                    type: "success",
+                    title: "Cadastro realizado!",
+                    description: "Você já pode fazer seu login",
+                });
+            } catch (err) {
+                if (err instanceof Yup.ValidationError) {
+                    const errors = getValidationErrors(err);
+
+                    formRef.current?.setErrors(errors);
+
+                    return;
+                }
+
+                addToast({
+                    type: "error",
+                    title: "Erro no cadastro",
+                    description:
+                        "Ocorreu um erro ao fazer cadastro, tente novamente.",
+                });
             }
-        }
-    }, []);
+        },
+        [addToast, history]
+    );
 
     return (
         <Container>
             <Background />
             <Content>
-                {/* <img src={logoImg} alt="GoBarber" /> */}
-                <h1>Ipet</h1>
+                <BoxInitial>
+                    <img src={logo} />
+                    <h1>IPET</h1>
+                </BoxInitial>
+                <AnimationContainer>
+                    <Form ref={formRef} onSubmit={handleSubmit}>
+                        <Title>Cadastre-se</Title>
 
-                <Form ref={formRef} onSubmit={handleSubmit}>
-                    <h1>Faça seu cadastro</h1>
+                        <Input name="name" icon={FiUser} placeholder="Nome" />
 
-                    <Input name="name" icon={FiUser} placeholder="E-mail" />
+                        <Input
+                            name="email"
+                            icon={FiMail}
+                            placeholder="E-mail"
+                        />
 
-                    <Input name="email" icon={FiMail} placeholder="E-mail" />
+                        <Input
+                            name="password"
+                            icon={FiLock}
+                            type="password"
+                            placeholder="Senha"
+                        />
 
-                    <Input
-                        name="password"
-                        icon={FiLock}
-                        type="password"
-                        placeholder="Senha"
-                    />
-
-                    <Button type="submit">Cadastrar</Button>
-                </Form>
-
-                <a href="signup">
-                    <FiArrowLeft />
-                    Voltar para logon
-                </a>
+                        <Button type="submit">Cadastra</Button>
+                    </Form>
+                    <Link to="/">
+                        <FiArrowLeft />
+                        Voltar para login
+                    </Link>
+                </AnimationContainer>
             </Content>
         </Container>
     );

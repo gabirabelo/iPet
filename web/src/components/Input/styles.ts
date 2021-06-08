@@ -7,9 +7,9 @@ interface ContainerProps {
     isErrored: boolean;
 }
 export const Container = styled.div<ContainerProps>`
-    background: #fff;
+    background: #eee;
     border-radius: 10px;
-    border: 2px solid #232129;
+    border: 2px solid #eee;
     padding: 16px;
     color: #666360;
     width: 100%;
@@ -28,14 +28,14 @@ export const Container = styled.div<ContainerProps>`
     ${(props) =>
         props.isFocused &&
         css`
-            color: #f6ba55;
-            border-color: #f6ba55;
+            color: #6998a8;
+            border-color: #6998a8;
         `}
 
     ${(props) =>
         props.isFilled &&
         css`
-            color: #ff9000;
+            color: #6998a8;
         `}
 
     input {
