@@ -34,7 +34,7 @@ export const Title = styled.h1`
     margin: 1rem 0;
     position: relative;
     z-index: 1;
-    ::after {
+    /* ::after {
         content: "";
         display: block;
         width: 1.5rem;
@@ -45,7 +45,7 @@ export const Title = styled.h1`
         left: -5px;
         border-radius: 0.2rem;
         z-index: -1;
-    }
+    } */
 `;
 
 export const AnimationContainer = styled.div`
@@ -75,7 +75,7 @@ export const AnimationContainer = styled.div`
         }
     }
     > a {
-        color: #61b7d4;
+        color: #f5b630;
         display: block;
         margin-top: 24px;
         text-decoration: none;
@@ -86,7 +86,7 @@ export const AnimationContainer = styled.div`
             margin-right: 16px;
         }
         &:hover {
-            color: ${shade(0.2, "#f6ba55")};
+            color: ${shade(0.2, "#fff")};
         }
     }
 `;

@@ -84,21 +84,19 @@ const SignUp: React.FC = () => {
             <Background />
             <Content>
                 <BoxInitial>
-                    <img src={logo} />
-                    <h1>IPET</h1>
+                    {/* <img src={logo} /> */}
+                    <h1>iPet</h1>
                 </BoxInitial>
                 <AnimationContainer>
                     <Form ref={formRef} onSubmit={handleSubmit}>
                         <Title>Cadastre-se</Title>
 
                         <Input name="name" icon={FiUser} placeholder="Nome" />
-
                         <Input
                             name="email"
                             icon={FiMail}
                             placeholder="E-mail"
                         />
-
                         <Input
                             name="password"
                             icon={FiLock}
@@ -106,7 +104,7 @@ const SignUp: React.FC = () => {
                             placeholder="Senha"
                         />
 
-                        <Button type="submit">Cadastra</Button>
+                        <Button type="submit">Cadastrar</Button>
                     </Form>
                     <Link to="/">
                         <FiArrowLeft />

@@ -95,8 +95,8 @@ const SignIn: React.FC = () => {
           contentContainerStyle={{ flex: 1 }}
         >
           <Container>
-            <LogoImage source={logoImg} width={5} />
-            <Logo>IPET</Logo>
+            {/* <LogoImage source={logoImg} width={5} /> */}
+            <Logo>iPET</Logo>
             <View>
               <Title>Login</Title>
             </View>
@@ -147,7 +147,7 @@ const SignIn: React.FC = () => {
           navigation.navigate("SignUp");
         }}
       >
-        <Icon name="log-in" size={20} color="#61b7d4" />
+        <Icon name="log-in" size={20} color="#ff9000" />
         <CreateAccountButtonText>Criar uma conta</CreateAccountButtonText>
       </CreateAccountButton>
     </>

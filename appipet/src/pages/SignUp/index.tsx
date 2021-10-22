@@ -97,7 +97,7 @@ const SignUp: React.FC = () => {
           contentContainerStyle={{ flex: 1 }}
         >
           <Container>
-            <LogoImage source={logoImg} width={5} />
+            {/* <LogoImage source={logoImg} width={5} /> */}
             <Logo>IPET</Logo>
             <View>
               <Title>Cadastre-se</Title>
@@ -146,7 +146,7 @@ const SignUp: React.FC = () => {
         </ScrollView>
       </KeyboardAvoidingView>
       <BackToSignIn onPress={() => navigation.goBack()}>
-        <Icon name="arrow-left" size={20} color="#61b7d4" />
+        <Icon name="arrow-left" size={20} color="#ff9000" />
         <BackToSignInText>Voltar para login</BackToSignInText>
       </BackToSignIn>
     </>

@@ -35,7 +35,7 @@ export const Title = styled.h1`
     margin: 1rem 0;
     position: relative;
     z-index: 1;
-    ::after {
+    /* ::after {
         content: "";
         display: block;
         width: 1.5rem;
@@ -46,7 +46,7 @@ export const Title = styled.h1`
         left: -5px;
         border-radius: 0.2rem;
         z-index: -1;
-    }
+    } */
 `;
 
 export const SubTitle = styled.h2`
@@ -55,14 +55,14 @@ export const SubTitle = styled.h2`
     margin: 1rem 0;
     position: relative;
     z-index: 1;
-    ::after {
+    /* ::after {
         content: "";
         display: block;
         background: #61b7d4;
         height: 0.4rem;
         width: 9rem;
         border-radius: 0.2rem;
-    }
+    } */
 `;
 
 export const BoxInitial = styled.div`
@@ -101,7 +101,7 @@ export const AnimationContainer = styled.div`
         }
     }
     > a {
-        color: #61b7d4;
+        color: #f5b630;
         display: block;
         margin-top: 24px;
         text-decoration: none;
@@ -112,7 +112,7 @@ export const AnimationContainer = styled.div`
             margin-right: 16px;
         }
         &:hover {
-            color: ${shade(0.2, "#333")};
+            color: ${shade(0.2, "#fff")};
         }
     }
 `;

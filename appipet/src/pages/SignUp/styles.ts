@@ -11,7 +11,7 @@ export const Container = styled.View`
 
 export const Title = styled.Text`
   font-size: 24px;
-  color: #333;
+  color: #ff9000;
   font-family: "RobotoSlab-Medium";
   margin: 64px 0 24px;
 `;
@@ -22,7 +22,7 @@ export const BackToSignIn = styled.TouchableOpacity`
   bottom: 0;
   right: 0;
   border-top-width: 1px;
-  border-color: #61b7d4;
+  border-color: #ff9000;
   padding: 16px 0 ${16 + getBottomSpace()}px;
 
   display: flex;
@@ -32,7 +32,7 @@ export const BackToSignIn = styled.TouchableOpacity`
 `;
 
 export const BackToSignInText = styled.Text`
-  color: #61b7d4;
+  color: #ff9000;
   font-size: 18px;
   font-family: "RobotoSlab-Regular";
   margin-left: 16px;
@@ -45,5 +45,5 @@ export const LogoImage = styled(Image)`
 
 export const Logo = styled.Text`
   font-size: 20px;
-  color: #333;
+  color: #ff9000;
 `;

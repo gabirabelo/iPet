@@ -85,8 +85,8 @@ const SignIn: React.FC = () => {
         <Container>
             <Content>
                 <BoxInitial>
-                    <img src={logo} />
-                    <h1>IPET</h1>
+                    {/* <img src={logo} /> */}
+                    <h1>iPet</h1>
                 </BoxInitial>
                 <AnimationContainer>
                     <Form ref={formRef} onSubmit={handleSubmit}>
@@ -107,9 +107,9 @@ const SignIn: React.FC = () => {
 
                         <Button type="submit">Entrar</Button>
 
-                        <a href="forgot">Esqueci minha senha</a>
+                        <Link to="/forgot-password">Esqueci minha senha</Link>
                     </Form>
-                    <SubTitle>Cadastre-se</SubTitle>
+                    {/* <SubTitle>Cadastre-se</SubTitle> */}
                     <p>Ainda não possui conta? Crie agora!</p>
                     <Link to="/signup">
                         <FiLogIn />
