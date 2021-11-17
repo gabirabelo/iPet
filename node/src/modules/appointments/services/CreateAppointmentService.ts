@@ -1,5 +1,5 @@
 import { injectable, inject } from "tsyringe";
-import { startOfHour, isBefore, getHours, format } from "date-fns";
+import { startOfHour, isBefore, getHours, format, isWeekend } from "date-fns";
 
 import IAppointmentsRepository from "../repositories/IAppointmentsRepository";
 import INotificationsRepository from "@modules/notifications/repositories/INotificationsRepository";
@@ -36,6 +36,11 @@ class CreateAppointmentService {
 
     if (user_id === provider_id) {
       throw new AppError("You can't create an appointment with yourself.");
+    }
+
+    if (isWeekend(date))
+    {
+      throw new AppError("You can't create an appontment on weekend");
     }
 
     if (getHours(appointmentDate) < 8 || getHours(appointmentDate) > 17) {

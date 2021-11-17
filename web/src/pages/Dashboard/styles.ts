@@ -76,6 +76,8 @@ export const Schedule = styled.div`
         span {
             display: flex;
             align-items: center;
+
+            a{color: white; cursor: pointer;}
         }
         span + span::before {
             content: "";
@@ -188,8 +190,86 @@ export const Appointment = styled.div`
             font-size: 20px;
             font-weight: 500;
         }
+       
+         button {
+            background: green;            
+            border: none;
+            padding: 15px;
+            margin: 10px;
+            color: white;
+            border-radius: 20px;
+
+            a { 
+                color: white;
+                text-decoration: none;
+            }
+         }
+         button:last-child {
+            background: red;
+            border: none;
+            padding: 15px;
+            margin: 10px;
+            color: white;
+            border-radius: 20px;
+
+        }
     }
 `;
+
+export const BoxModal = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    min-height: 300px;
+    color: #262626;
+    background-color:white;
+    border: none;
+    box-shadow: 24;
+    display: flex;
+    align-items: normal;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+
+    h1{
+        color: #f5b630;
+    }
+`;
+
+export const BoxContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+
+    div{
+        margin-top: 0.5em;
+    }
+
+    img{
+        width: 50px;
+        height: 50px
+    }
+`
+
+export const BoxContact = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #303030;
+
+    div{ 
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    p{
+        margin-bottom: 10px;
+        color: green;
+    }
+`
 
 export const Calendar = styled.aside`
     width: 380px;

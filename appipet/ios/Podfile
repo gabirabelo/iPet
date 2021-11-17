@@ -12,7 +12,6 @@ target 'appipet' do
     :hermes_enabled => false
   )
 
-  pod 'RNDateTimePicker', :path => '../node_modules/@react-native-community/datetimepicker'
 
   target 'appipetTests' do
     inherit! :complete
@@ -23,7 +22,7 @@ target 'appipet' do
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and
   # you should disable the next line.
-  use_flipper!()
+  use_flipper!({ 'Flipper-Folly' => '2.5' })
 
   post_install do |installer|
     react_native_post_install(installer)

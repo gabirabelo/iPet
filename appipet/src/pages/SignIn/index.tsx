@@ -7,8 +7,11 @@ import {
   Platform,
   TextInput,
   Alert,
+  Text,
+  StyleSheet,
 } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
+import LinearGradient from "react-native-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 import { Form } from "@unform/mobile";
 import { FormHandles } from "@unform/core";
@@ -30,7 +33,12 @@ import {
   CreateAccountButton,
   Logo,
   LogoImage,
+  SubTitle,
+  Top,
+  ContainerImg,
 } from "./styles";
+
+import logo1 from "../../assets/dog2.jpeg";
 
 interface SignInFormData {
   email: string;
@@ -40,6 +48,19 @@ interface SignInFormData {
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const passwordInputRef = useRef<TextInput>(null);
+
+  const styles = StyleSheet.create({
+    fixedTop: {
+      zIndex: 1,
+      position: "absolute",
+      top: 0,
+      height: 100,
+    },
+    linearGradient: {
+      height: 140,
+      width: "100%",
+    },
+  });
 
   const navigation = useNavigation();
 
@@ -94,12 +115,15 @@ const SignIn: React.FC = () => {
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={{ flex: 1 }}
         >
+          <Top>
+            <ContainerImg>
+              <LogoImage source={logo1} />
+              <Title>iPet</Title>
+            </ContainerImg>
+          </Top>
+
           <Container>
-            {/* <LogoImage source={logoImg} width={5} /> */}
-            <Logo>iPET</Logo>
-            <View>
-              <Title>Login</Title>
-            </View>
+            <SubTitle>Aqui você encontra os melhores veterinários</SubTitle>
             <Form ref={formRef} onSubmit={handleSignIn}>
               <Input
                 autoCorrect={false}
@@ -147,8 +171,8 @@ const SignIn: React.FC = () => {
           navigation.navigate("SignUp");
         }}
       >
-        <Icon name="log-in" size={20} color="#ff9000" />
-        <CreateAccountButtonText>Criar uma conta</CreateAccountButtonText>
+        <Text>Você não possui conta?</Text>
+        <CreateAccountButtonText>Crie agora!</CreateAccountButtonText>
       </CreateAccountButton>
     </>
   );

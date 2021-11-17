@@ -14,6 +14,11 @@ interface User {
   name: string;
   email: string;
   avatar_url: string;
+  address_line: string;
+  number: string;
+  city: string;
+  state: string;
+  complement: string;
 }
 
 interface AuthState {

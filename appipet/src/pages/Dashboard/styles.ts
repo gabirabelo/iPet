@@ -17,6 +17,31 @@ export const Header = styled.View`
   align-items: center;
 `;
 
+export const Footer = styled.View`
+  background: #f5b630;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  position: absolute;
+  bottom: 0;
+`;
+
+export const Space = styled.View`
+  width: 100px;
+`
+
+export const ButtonTab = styled(RectButton)`
+  background: transparent;
+  width: 150px;
+  margin: 2px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const HeaderTitle = styled.Text`
   color: #f4ede8;
   font-size: 20px;
@@ -42,7 +67,7 @@ export const ProvidersList = styled(
 ).attrs({
   contentContainerStyle: {
     paddingTop: 32,
-    paddingBottom: 16,
+    paddingBottom: 70,
     paddingHorizontal: 24,
   },
 })``;
@@ -58,7 +83,7 @@ export const ProviderContainer = styled(RectButton)`
   flex-direction: row;
   align-items: center;
   padding: 20px;
-  margin-bottom: 16px;
+  margin-bottom: 25px;
   background: #3e3b47;
   border-radius: 10px;
 `;
@@ -67,6 +92,11 @@ export const ProviderAvatar = styled.Image`
   width: 72px;
   height: 72px;
   border-radius: 36px;
+`;
+
+export const ProviderAvatarWhats = styled.Image`
+  width: 100px;
+  height: 100px;
 `;
 
 export const ProviderInfo = styled.View`

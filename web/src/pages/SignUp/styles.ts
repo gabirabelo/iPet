@@ -4,9 +4,9 @@ import { shade } from "polished";
 import signUpBackground from "../../assets/logo2.jpg";
 
 export const Container = styled.div`
-    height: 100vh;
     display: flex;
     align-items: stretch;
+    padding: 20px;
 `;
 
 export const Content = styled.div`
@@ -90,6 +90,21 @@ export const AnimationContainer = styled.div`
         }
     }
 `;
+
+export const BoxAddress = styled.div`
+    display: flex;
+    margin: 10px 0;
+    justify-content: center;
+    align-items: center;
+
+    div{
+        margin: 0px 10px 0px 0px;
+        button{
+            font-size: 11px;
+            font-weight: 300;
+        }
+    }
+`
 
 export const BoxInitial = styled.div`
     display: flex;

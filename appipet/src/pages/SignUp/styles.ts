@@ -6,8 +6,25 @@ export const Container = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
-  padding: 0 30px ${Platform.OS === "android" ? 170 : 40}px;
+  padding: 0 30px ${Platform.OS === "android" ? 0 : 40}px;
 `;
+
+export const BoxButton = styled.View`
+  margin: 10px 0;
+`;
+
+export const BoxGeo = styled.View`
+  margin: 10px 0;
+  border: 1px solid #fff;
+  padding:15px;
+`;
+
+export const BoxGeoText= styled.Text`
+ font-size: 14px;
+  color: #fff;
+  font-family: "RobotoSlab";
+`;
+
 
 export const Title = styled.Text`
   font-size: 24px;

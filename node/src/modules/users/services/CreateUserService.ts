@@ -11,6 +11,17 @@ interface Request {
   name: string;
   email: string;
   password: string;
+  postal_code:string;
+  address_line:string;
+  number:string;
+  district:string;
+  city:string;
+  state:string;
+  complement:string;
+  user_type:string;
+  phone_number:string;
+  price:number;
+  pix: string;
 }
 
 @injectable()
@@ -23,7 +34,18 @@ class CreateUserService {
     private hashProvider: IHashProvider
   ) {}
 
-  public async execute({ name, email, password }: Request): Promise<User> {
+  public async execute({ name, email, password, postal_code, 
+    address_line,
+    number,
+    district,
+    city,
+    state,
+    complement,
+    user_type,
+    phone_number,
+    price,
+    pix
+}: Request): Promise<User> {
     const checkUserExists = await this.usersRepository.findByEmail(email);
 
     if (checkUserExists) {
@@ -36,6 +58,17 @@ class CreateUserService {
       name,
       email,
       password: hashedPassword,
+      postal_code, 
+      address_line,
+      number,
+      district,
+      city,
+      state,
+      complement,
+      user_type,
+      phone_number,
+      price,
+      pix
     });
 
     return user;

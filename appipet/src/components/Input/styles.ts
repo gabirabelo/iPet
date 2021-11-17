@@ -9,15 +9,13 @@ interface ContainerProps {
 
 export const Container = styled.View<ContainerProps>`
   width: 100%;
-  height: 60px;
+  height: 50px;
   padding: 0 16px;
-  background: #eee;
+  background: #e9e9e9;
   border-radius: 10px;
   margin-bottom: 8px;
-
-  border-width: 2px;
-  border-color: #eee;
-
+  border-bottom-width: 1px;
+  border-color: #e9e9e9;
   flex-direction: row;
   align-items: center;
 

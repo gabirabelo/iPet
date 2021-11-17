@@ -46,12 +46,6 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
     setIsFilled(!!inputValueRef.current.value);
   }, []);
 
-  useImperativeHandle(ref, () => ({
-    focus() {
-      inputElementRef.current.focus();
-    },
-  }));
-
   useEffect(() => {
     registerField({
       name: fieldName,
@@ -68,6 +62,8 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
     });
   }, [fieldName, registerField]);
 
+  console.log("default", defaultValue);
+
   return (
     <Container isFocused={isFocused} isErrored={!!error}>
       <Icon
@@ -80,8 +76,6 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         keyboardAppearance="dark"
         placeholderTextColor="#666360"
         defaultValue={defaultValue}
-        onFocus={handleInputFocus}
-        onBlur={handleInputBlur}
         onChangeText={(value) => {
           inputValueRef.current.value = value;
         }}

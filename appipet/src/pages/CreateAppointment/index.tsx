@@ -7,7 +7,7 @@ import { format } from "date-fns";
 
 import api from "../../services/api";
 
-import logo1 from "../../assets/dog1.jpg";
+import logo1 from "../../assets/dog2.jpeg";
 
 import { useAuth } from "../../hooks/auth";
 
@@ -86,6 +86,8 @@ const CreateAppointment: React.FC = () => {
       .then((response) => {
         setAvailability(response.data);
       });
+
+    console.log(new Date());
   }, [selectedDate, selectedProvider]);
 
   const navigateBack = useCallback(() => {
@@ -154,7 +156,7 @@ const CreateAppointment: React.FC = () => {
     } catch (err) {
       Alert.alert(
         "Erro ao criar agendamento",
-        "Ocorreu um erro ao criar o agendamento"
+        "Os agendamentos só podem acontecer de segunda a sexta, das 8h ás 18h "
       );
     }
   }, [selectedDate, selectedHour, selectedProvider, navigate]);
@@ -208,6 +210,7 @@ const CreateAppointment: React.FC = () => {
               {...(Platform.OS === "ios" && { textColor: "#f4ede8" })} // < nessa linha
               onChange={handleDateChange}
               value={selectedDate}
+              minimumDate={new Date()}
             />
           )}
         </Calender>

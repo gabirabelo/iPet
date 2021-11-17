@@ -20,6 +20,62 @@ export const Container = styled.div`
     }
 `;
 
+export const BoxModal = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 300px;
+    color: black;
+    background-color:white;
+    border: 2px solid #000;
+    box-shadow: 24;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+
+    p{
+        text-align: center;
+        font-size: 15px;
+        margin-bottom: 40px;
+    }
+
+    div{
+        display: flex;
+    }
+
+    
+`;
+
+export const BoxDay = styled.button`
+    border: 1px solid #C4C4C4;
+    padding: 20px;
+    width: 53px;
+    height: 68px;
+    text-align: center;
+    color: #221D25;
+    background: #fff;
+    margin: 0px 10px;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 13px;
+    letter-spacing: -0.03em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+    :hover{
+        background: #f5b630;
+        color: #000;
+        border: 1px solid #000;
+
+    }
+`
+
 export const Content = styled.div`
     display: flex;
     flex-direction: column;
